@@ -79,12 +79,12 @@ table {
 
 /*start resume unique */
 /*aligning resume into columns*/
-#left {
+.left {
   width: 15%;
   float: left;
   margin-right: 5%;
 }
-#right{
+.right{
   width: 75%;
   float: left;
   margin-right: 5%;
