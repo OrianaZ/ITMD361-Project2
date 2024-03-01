@@ -115,6 +115,12 @@ table {
   margin-top:7%;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+#resume h1 {
+  font-family: 'Pacifico', cursive;
+}
+
+
 #resume #resume-education img{
   margin-top:5px;
 }
