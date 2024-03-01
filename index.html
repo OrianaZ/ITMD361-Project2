@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Oriana Zup Project 1</title>
+  <title>Oriana Zup Project 2</title>
   <link rel="stylesheet" type="text/css" href="css/css.css">
 </head>
 
-<body>
+<body id="homepage">
   <section id="navigation">
     <table>
       <tr>
@@ -17,16 +17,52 @@
     </table>
   </section>
 
-  <section id="homepage">
-    <h1>Homepage</h1>
-    <h2>About Me</h2>
-    <p>Hello! My name is Oriana, and I am a 4th year CS student. I am originally from Cleveland Ohio, and my family has 2 pets! We have a cat named Milkshake who we've had for about 1 year. We also have a bunny named Cookie that we have had for about 5 years.</p>
-    <div>
-      <video loop autoplay muted><source src="imgs/home/cat.MOV"></video>
-      <img src="imgs/home/hcat.jpg" alt="Milkshake">
-    </div>
-    <div>
-      <img src="imgs/home/hbunny.jpeg" alt="Cookie">
-    </div>
+  <section >
+    <table>
+      <tr>
+        <td>
+          <h1>Homepage</h1>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h2>About Me</h2>
+          <p>Hello! My name is Oriana, and I am a 4th year CS student. I am originally from Cleveland Ohio, and my family has 2 pets! We have a cat named Milkshake who we've had for about 1 year. We also have a bunny named Cookie that we have had for about 5 years.</p>
+        </td>
+      </tr>
+      <tr>
+        <td id="homepage-milkshake">
+            <h3>Milkshake</h3>
+            <video loop autoplay muted><source src="imgs/home/cat.MOV"></video>
+            <img class="popup-trigger" src="imgs/home/hcat.jpg" alt="Milkshake">
+        </td>
+      </tr>
+      <tr>
+        <td id="homepage-cookie">
+          <h3>Cookie</h3>
+          <img class="popup-trigger" src="imgs/home/hbunny.jpeg" alt="Cookie">
+        </td>
+      </tr>
+    </table>
   </section>
+
+  <div id="popup">
+    <img id="popup-content" alt="Enlarged Image or Video">
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var popupTriggers = document.querySelectorAll('.popup-trigger');
+      popupTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var source = trigger.tagName === 'IMG' ? trigger.src : trigger.querySelector('source').src;
+          document.getElementById('popup-content').src = source;
+          document.getElementById('popup').style.display = 'flex';
+        });
+      });
+      document.getElementById('popup').addEventListener('click', function () {
+        document.getElementById('popup').style.display = 'none';
+      });
+    });
+  </script>
 </body>
