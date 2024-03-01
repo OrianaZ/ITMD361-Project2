@@ -1,0 +1,117 @@
+/*body*/
+body {
+  background-color: rgb(201, 158, 241);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, p {
+  color: black;
+  margin: 0px;
+  padding: 0px;
+}
+
+h1{
+  font-size: 36px;
+  margin-bottom:5px;
+}
+
+h2{
+  margin-bottom: 15px;
+  margin-top:20px;
+}
+
+h3{
+  margin-bottom: 5px;
+
+}
+
+h4{
+  font-style: italic;
+  font-weight:normal;
+}
+
+p{
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+/*navigation*/
+#navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 30px;
+}
+
+#navigation table td:hover {
+  background-color: rgb(161, 161, 161);
+}
+
+#navigation table{
+  width: 100%;
+  background-color: gray;
+  margin-top:0px;
+  padding-left:10%;
+  padding-right:10%;
+  display: flex;
+  justify-content: center;
+}
+/* end navigation*/
+
+
+/*resume table*/
+table {
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/*aligning resume into columns*/
+#left {
+  width: 15%;
+  float: left;
+  margin-right: 5%;
+}
+#right{
+  width: 75%;
+  float: left;
+  margin-right: 5%;
+}
+
+#resume-work,
+#resume-education,
+#resume-projects {
+  width: 100%;
+  float: left;
+}
+
+/*end columns*/
+
+#resume #resume-name img {
+  border-radius: 50%;
+  width:100%;
+}
+
+#resume img {
+  width:10%
+}
+
+#resume h2 {
+  color: rgb(154, 113, 192);
+}
+
+#resume-summary{
+  margin-top:7%;
+}
