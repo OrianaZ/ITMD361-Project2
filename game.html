@@ -183,14 +183,12 @@
         </tr>
       </table>
     </section>
-
     <script>
       function handleSearch() {
         var searchInput = document.getElementById("searchInput");
         var filter = searchInput.value.toLowerCase();
         var table = document.getElementById("gamesTable");
         var rows = table.getElementsByTagName("tr");
-
         for (var i = 2; i < rows.length; i++) {
           var rowText = rows[i].innerText.toLowerCase();
           if (rowText.indexOf(filter) > -1) {
@@ -200,7 +198,6 @@
           }
         }
       }
-
        function handleSortChange(selectedValue) {
         switch (selectedValue) {
           case 'name':
@@ -216,23 +213,18 @@
             console.error('Invalid sort option');
         }
       }
-
       function sortTable(compareFunction) {
         var table = document.getElementById("gamesTable");
         if (!table) {
           console.error("Table not found.");
           return;
         }
-
         var rows = Array.from(table.getElementsByTagName("tr")).slice(2);
-
         rows.sort(compareFunction);
-
         for (var i = 0; i < rows.length; i++) {
           table.appendChild(rows[i]);
         }
       }
-
       function sortByName() {
         sortTable(function (a, b) {
           var titleA = a.getElementsByTagName("h3")[0];
@@ -246,7 +238,6 @@
           return titleA.localeCompare(titleB);
         });
       }
-
       function sortByPlayTime() {
         sortTable(function (a, b) {
           var playTimeA = getPlayTime(a);
@@ -254,15 +245,13 @@
           return playTimeB - playTimeA;
         });
       }
-
       function sortByAchievements() {
-      sortTable(function (a, b) {
-        var achievementsA = evalFraction(getAchievements(a));
-        var achievementsB = evalFraction(getAchievements(b));
-        return achievementsB - achievementsA;
-      });
-    }
-
+        sortTable(function (a, b) {
+          var achievementsA = evalFraction(getAchievements(a));
+          var achievementsB = evalFraction(getAchievements(b));
+          return achievementsB - achievementsA;
+        });
+      }
       function getPlayTime(row) {
         var playTimeElement = row.getElementsByTagName("h4")[1];
         if (!playTimeElement) {
@@ -271,31 +260,26 @@
         }
         return parseFloat(playTimeElement.innerText.split(":")[1].trim().split(" ")[0]) || 0;
       }
-
       function getAchievements(row) {
-      var achievementsElement = row.getElementsByTagName("h4")[1];
-      if (!achievementsElement) {
-        console.error("Achievements element not found.");
-        return 0;
+        var achievementsElement = row.getElementsByTagName("h4")[1];
+        if (!achievementsElement) {
+          console.error("Achievements element not found.");
+          return 0;
+        }
+        var fractionString = achievementsElement.innerText.split(":")[3].trim();
+        return fractionString === "n/a" ? -1 : fractionString;
       }
-
-      var fractionString = achievementsElement.innerText.split(":")[3].trim();
-      return fractionString === "n/a" ? -1 : fractionString;
-    }
-
-    function evalFraction(fractionString) {
-      if (fractionString === "n/a") {
-        return -1;
+      function evalFraction(fractionString) {
+        if (fractionString === "n/a") {
+          return -1;
+        }
+        try {
+          return eval(fractionString) || 0;
+        } catch (error) {
+          console.error("Error evaluating fraction:", error);
+          return 0;
+        }
       }
-
-      try {
-        return eval(fractionString) || 0;
-      } catch (error) {
-        console.error("Error evaluating fraction:", error);
-        return 0;
-      }
-    }
-
     </script>
   </body>
 </html>
