@@ -14,7 +14,7 @@ h1, h2, h3, h4, p, label, a {
 h1{
   font-size: 36px;
   margin-bottom:5px;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', Arial, sans-serif;
 }
 
 h2{
